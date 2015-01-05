@@ -1,0 +1,30 @@
+db:
+  image: postgres
+  ports:
+    - "5432"
+web:
+  build: dockerfiles/nginx
+  ports:
+    - "80:80"
+  volumes:
+    - example/rails:/www
+  links:
+    - app
+app:
+  build: dockerfiles/rails
+  command: /opt/startup.sh
+  ports:
+    - "3000:3000"
+  volumes:
+    - example/rails:/app
+  links:
+    - db
+
+# `fig run dev` will bring us to a nice dev environment
+# where we can run commands like `rails g scaffold`
+dev:
+  build: dockerfiles/rails
+  volumes:
+    - example/rails:/app
+  links:
+    - db
