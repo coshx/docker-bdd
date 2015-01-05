@@ -1,5 +1,7 @@
 # Behavior-Driven Docker Development
 
+[![Build Status](https://travis-ci.org/coshx/docker-bdd.svg?branch=master)](https://travis-ci.org/coshx/docker-bdd)
+
 This repository demonstrates how to use cucumber and behavior-driven
 development to orchestrate docker containers into a running 3-tiered
 application. It also can be used to quickly get a rails development
