@@ -6,6 +6,7 @@ dependencies:
   override:
     - sudo pip install fig
     - fig up -d
+    - gem install cucumber
 
 test:
   override:

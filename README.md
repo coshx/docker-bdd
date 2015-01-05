@@ -1,4 +1,5 @@
 # Behavior-Driven Docker Development
+[![Circle CI](https://circleci.com/gh/coshx/docker-bdd.svg)](https://circleci.com/gh/coshx/docker-bdd)
 
 This repository demonstrates how to use cucumber and behavior-driven
 development to orchestrate docker containers into a running 3-tiered
