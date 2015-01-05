@@ -5,7 +5,7 @@ Given /^(?:T|t)he services are running$/ do
     # the tests run before the server is fully up.
     sleep_cmd = `whoami`.strip == 'vagrant' ? '&& sleep 10' : ''
     
-    run_cmd "fig build && fig up -d #{sleep_cmd}"
+    run_cmd "fig build && (fig up -d || true) #{sleep_cmd}"
     $fig_up = true
   end
 end
