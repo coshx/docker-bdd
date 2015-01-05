@@ -15,4 +15,4 @@ install:
   - gem install cucumber
   
 script:
-  - (docker -d)& sleep 5 && cucumber
+  - (sudo docker -d)& sleep 5 && bash -l -c cucumber
