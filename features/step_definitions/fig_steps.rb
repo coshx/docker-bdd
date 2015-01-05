@@ -1,8 +1,13 @@
 Given /^(?:T|t)he services are running$/ do
-  if !$fig_up
-    # I hate having a sleep here,
+  # don't run `fig up` more than once on circle.
+  # since it hits an error (Failed to destroy btrfs snapshot: operation not permitted)
+  # already running this via circle.yml
+  $fig_up = ENV['CIRCLECI']
+  
+  unless $fig_up
+    # I hate sleeping here,
     # but when running on vagrant,
-    # the tests run before the server is fully up.
+    # rails needs some more time.
     sleep_cmd = `whoami`.strip == 'vagrant' ? '&& sleep 10' : ''
     
     run_cmd "fig build && (fig up -d || true) #{sleep_cmd}"
