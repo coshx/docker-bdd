@@ -67,7 +67,7 @@ In addition to installing docker and fig, you'll need to have
 
 Or,
 
-- install ruby (e.g. via [rvm](http://rvm.io/) or a system package)
+- install ruby (>= 2.0) (e.g. via [rvm](http://rvm.io/) or a system package)
 - install cucumber
 
         $ gem install cucumber
