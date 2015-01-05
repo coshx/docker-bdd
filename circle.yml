@@ -1,0 +1,13 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - pip install fig
+    - fig up -d
+
+test:
+  override:
+    - cucumber
+

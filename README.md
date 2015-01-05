@@ -1,7 +1,5 @@
 # Behavior-Driven Docker Development
 
-[![Build Status](https://travis-ci.org/coshx/docker-bdd.svg?branch=master)](https://travis-ci.org/coshx/docker-bdd)
-
 This repository demonstrates how to use cucumber and behavior-driven
 development to orchestrate docker containers into a running 3-tiered
 application. It also can be used to quickly get a rails development
@@ -144,6 +142,3 @@ This will show logs as they come in. Use Ctrl+C to quit.
 
 ## Thanks
 - Thanks to the great work being done on Docker and Fig!
-- Thanks to
-  [travis-docker-example](https://github.com/lukecyca/travis-docker-example
-  ) for the initial [.travis.yml](.travis.yml) file
