@@ -140,3 +140,10 @@ This will show logs as they come in. Use Ctrl+C to quit.
     [fig_steps.rb](features/step_definitions/fig_steps.rb) to just
     sleep for 10 seconds after running `fig up`, but this may not be
     suitable for all environments.
+
+
+## Thanks
+- Thanks to the great work being done on Docker and Fig!
+- Thanks to
+  [travis-docker-example](https://github.com/lukecyca/travis-docker-example
+  ) for the initial [.travis.yml](.travis.yml) file
