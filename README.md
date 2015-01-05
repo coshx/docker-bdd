@@ -5,6 +5,23 @@ development to orchestrate docker containers into a running 3-tiered
 application. It also can be used to quickly get a rails development
 environment running for a specific project.
 
+Once you have all the pre-requisites installed, starting up a rails
+app is as simple as
+
+    $ fig up -d
+
+or
+
+    $ vagrant up --provision
+
+And then you can visit `http://localhost:8080` or
+`http://localhost:3000` on your host machine to access the website.
+
+
+But the real power of this setup is that we can develop new docker
+containers in a test-driven manner.
+
+
 ## Pre-Requisites - Docker & Fig
 
 ### Running Docker natively
