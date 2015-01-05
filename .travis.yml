@@ -12,6 +12,7 @@ install:
   - sudo easy_install -U pip
   - sudo pip install -U fig
   - sudo usermod -a -G docker $USER
+  - gem install cucumber
   
 script:
   - cucumber
