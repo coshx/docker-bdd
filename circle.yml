@@ -6,14 +6,16 @@ machine:
 
 dependencies:
   override:
-    - sudo pip install fig
+    - sudo pip install git+https://github.com/btaitelb/fig.git@notail
     - fig up -d
     - gem install cucumber
 
 test:
   override:
     - cucumber --format json --out $CIRCLE_TEST_REPORTS/cucumber/tests.cucumber
-
+  post:
+    - fig logs --no-tail > ${CIRCLE_ARTIFACTS}/fig.log
+    
 deployment:
   hub:
     branch: master
