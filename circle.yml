@@ -23,5 +23,5 @@ deployment:
     branch: master
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p "${DOCKER_PASS}"
-      - for image in `fig ps | grep Up | cut -d ' ' -f 1 | sed -r 's/_[0-9]+$//'`; do docker push ${CIRCLE_PROJECT_USERNAME}/${image}:${CIRCLE_SHA1:0:7}; done
+      - for image in `fig ps | grep Up | cut -d ' ' -f 1`; do IMG=`echo ${CIRCLE_PROJECT_USERNAME}/$image | sed -r 's/_[0-9]+$//'`; SHA=${CIRCLE_SHA1:0:7}; docker tag ${image}:latest $IMG:$SHA; docker push $IMG:$SHA; done
 
