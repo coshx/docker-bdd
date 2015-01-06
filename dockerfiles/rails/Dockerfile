@@ -16,6 +16,6 @@ CMD     ["/usr/bin/zsh"]
 RUN     mkdir /app
 WORKDIR /app
 ADD     Gemfile /app/Gemfile
-RUN     bundle install
+RUN     bundle update
 ADD     startup.sh /opt/startup.sh
 EXPOSE  3000
