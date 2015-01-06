@@ -1,8 +1,9 @@
+$fig_up = ENV['CIRCLECI']
+
 Given /^(?:T|t)he services are running$/ do
   # don't run `fig up` more than once on circle.
   # since it hits an error (Failed to destroy btrfs snapshot: operation not permitted)
   # already running this via circle.yml
-  $fig_up = ENV['CIRCLECI']
   
   unless $fig_up
     # I hate sleeping here,
@@ -16,6 +17,6 @@ Given /^(?:T|t)he services are running$/ do
 end
 
 When /^I run "([^\"]*)" on (?:|the )"([^\"]*)"(?:| service)$/ do |cmd, service|
-  run_cmd "fig run #{service} #{cmd}"
+  run_cmd "fig run -T #{service} #{cmd}"
 end
 
