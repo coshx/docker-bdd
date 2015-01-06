@@ -15,6 +15,7 @@ test:
     - cucumber
   post:
     - fig logs --no-tail > ${CIRCLE_ARTIFACTS}/fig.log
+    - cp examples/rails/log/* ${CIRCLE_ARTIFACTS}
     
 deployment:
   hub:
