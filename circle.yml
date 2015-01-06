@@ -11,10 +11,8 @@ dependencies:
     - gem install cucumber
 
 test:
-  pre: 
-    - mkdir -p ${CIRCLE_TEST_REPORTS}/cucumber
   override:
-    - cucumber --format json --out ${CIRCLE_TEST_REPORTS}/cucumber/tests.cucumber
+    - cucumber
   post:
     - fig logs --no-tail > ${CIRCLE_ARTIFACTS}/fig.log
     
