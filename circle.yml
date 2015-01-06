@@ -6,7 +6,7 @@ machine:
 
 dependencies:
   override:
-    - sudo pip install git+https://github.com/btaitelb/fig.git@notail
+    - sudo pip install git+http://github.com/btaitelb/fig.git@notail
     - fig up -d
     - gem install cucumber
 
