@@ -6,7 +6,7 @@ def run_cmd(cmd)
   @output = ""
   exit_status = 0
   Open3.popen2e(cmd) do |input, output_and_error, wait_thread|
-    sleep 0.25
+    sleep 1
     output_and_error.each do |line|
       @output << "\n" + line
       STDOUT.puts line
