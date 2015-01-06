@@ -17,6 +17,7 @@ Given /^(?:T|t)he services are running$/ do
 end
 
 When /^I run "([^\"]*)" on (?:|the )"([^\"]*)"(?:| service)$/ do |cmd, service|
-  run_cmd "fig run -T #{service} bash -c 'sleep 1; #{cmd}'"
+  cmd = %Q["#{cmd}"]
+  run_cmd "fig run -T #{service} bash -c \"sleep 1; #{cmd}\""
 end
 
