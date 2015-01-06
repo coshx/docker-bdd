@@ -8,6 +8,7 @@ dependencies:
   override:
     - sudo pip install git+http://github.com/btaitelb/fig.git@notail
     - fig up -d
+    - fig run dev bundle install
     - gem install cucumber
 
 test:
@@ -15,7 +16,7 @@ test:
     - cucumber
   post:
     - fig logs --no-tail > ${CIRCLE_ARTIFACTS}/fig.log
-    - cp examples/rails/log/* ${CIRCLE_ARTIFACTS}
+    - cp example/rails/log/* ${CIRCLE_ARTIFACTS}
     
 deployment:
   hub:
