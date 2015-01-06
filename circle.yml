@@ -12,7 +12,7 @@ dependencies:
 
 test:
   override:
-    - cucumber
+    - cucumber --format json --out $CIRCLE_TEST_REPORTS/cucumber/tests.cucumber
 
 deployment:
   hub:
