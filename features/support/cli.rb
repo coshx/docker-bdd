@@ -1,10 +1,12 @@
+require 'open3'
+
 def run_cmd(cmd)
-  require 'open3'
   puts "Running: #{cmd}\n"
 
   @output = ""
   exit_status = 0
   Open3.popen2e(cmd) do |input, output_and_error, wait_thread|
+    sleep 0.25
     output_and_error.each do |line|
       @output << "\n" + line
       STDOUT.puts line
