@@ -18,3 +18,7 @@ Scenario: Rails Running
   And I run "curl http://app:3000 |grep '<h1>'" on "app"
   Then I should see "Welcome aboard"
 
+Scenario: Rails App Test Suite Passes
+  Given I run "rake" on "dev"
+  Then I should see "0 failures"
+  And I should see "0 errors"
