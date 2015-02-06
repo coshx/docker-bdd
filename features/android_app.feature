@@ -1,6 +1,6 @@
 Feature: Build and Test Android App
   As a developer
-  I want to build and test an Android Appp in docker
+  I want to build and test an Android App in docker
   So I can develop locally without dealing with dependencies
 
 Scenario: Java installed
