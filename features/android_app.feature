@@ -7,3 +7,8 @@ Scenario: Java installed
   Given the services are running
   And I run "java -version" on "android"
   Then I should see "1.7"
+
+Scenario: Build the app
+  Given the services are running
+  And I run "cd /app && ./gradlew assembleRelease" on "android"
+  Then I should see "BUILD SUCCESSFUL"
