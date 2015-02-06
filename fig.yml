@@ -33,4 +33,4 @@ dev:
 android:
   build: dockerfiles/android
   volumes:
-    - example/android:/TestApplication/app
+    - example/android/TestApplication:/app
