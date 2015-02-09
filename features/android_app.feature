@@ -10,5 +10,5 @@ Scenario: Java installed
 
 Scenario: Build the app
   Given the services are running
-  And I run "./gradlew assembleRelease" on "android"
+  And I run "/opt/gradle-2.2.1/bin/gradle assembleRelease" on "android"
   Then I should see "BUILD SUCCESSFUL"
