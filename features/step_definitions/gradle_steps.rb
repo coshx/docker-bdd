@@ -1,5 +1,3 @@
-require 'pry'
-
 Then(/^the Gradle test report should show some passing tests$/) do
   filename = __dir__+("/../../example/android/android-studio-robolectric-example/app/build/test-report/index.html")
   report = File.read(filename)
