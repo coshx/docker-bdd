@@ -28,3 +28,9 @@ dev:
     - example/rails:/app
   links:
     - db
+
+# `fig run android` will bring us to a nice android dev environment
+android:
+  build: dockerfiles/android
+  volumes:
+    - example/android/android-studio-robolectric-example:/app
