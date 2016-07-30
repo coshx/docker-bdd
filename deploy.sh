@@ -5,5 +5,5 @@ for name in `docker ps -f status=running | awk -F '  +' '{name=$7; sub(/_[0-9]+$
     SHA=${CIRCLE_SHA1:0:7}
     IMG=${CIRCLE_PROJECT_USERNAME}/$name
 
-    docker tag $name:latest $IMG:latest && docker tag $name:latest $IMG:$SHA && docker push $IMG || echo "Failed to push $name - do you want to build this image and have a docker hub repository set up for it?" >&2
+    docker tag $name:latest $IMG:latest && docker tag $name:latest $IMG:$SHA && docker push $IMG || echo "Failed to push $name to docker hub repository" >&2
 done
