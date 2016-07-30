@@ -1,22 +1,22 @@
 machine:
   ruby:
-    version: 2.1.2
+    version: 2.2.2
   services:
     - docker
 
 dependencies:
   override:
-    - sudo pip install git+http://github.com/btaitelb/fig.git@notail
-    - fig up -d
+    - sudo pip install docker-compose
+    - docker-compose up -d
     - gem install cucumber
 
 test:
   override:
     - cucumber
   post:
-    - fig logs --no-tail > ${CIRCLE_ARTIFACTS}/fig.log
+    - docker-compose logs > ${CIRCLE_ARTIFACTS}/docker-compose.log
     - cp example/rails/log/* ${CIRCLE_ARTIFACTS}
-    
+
 deployment:
   hub:
     branch: master

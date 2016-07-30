@@ -1,10 +1,10 @@
 FROM    ruby
 
 # rails dependencies
-RUN     apt-get update -qq && apt-get install -y build-essential libpq-dev curl
+RUN     apt-get update -qq && apt-get install -y build-essential libpq-dev curl nodejs
 
 # set this up for development as well
-RUN     apt-get install -y zsh emacs git nano vim
+RUN     apt-get install -y zsh emacs git nano vim less
 RUN     (curl -L http://install.ohmyz.sh | sh) || true
 RUN     chsh -s /bin/zsh
 RUN     sed -i '$iDISABLE_UPDATE_PROMPT=true' /root/.zshrc

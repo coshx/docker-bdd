@@ -7,7 +7,7 @@ Scenario: nginx installed
   Given the services are running
   And I run "nginx -v" on the "web" service
   Then I should see "nginx"
-  And I should see "1.7"
+  And I should see "1.11"
 
 Scenario: nginx running
   Given the services are running

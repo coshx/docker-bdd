@@ -7,7 +7,7 @@ web:
   ports:
     - "80:80"
   volumes:
-    - example/rails:/www
+    - ./example/rails:/www
   links:
     - app
 app:
@@ -16,21 +16,23 @@ app:
   ports:
     - "3000:3000"
   volumes:
-    - example/rails:/app
+    - ./example/rails:/app
   links:
     - db
 
-# `fig run dev` will bring us to a nice dev environment
+# `docker-compose run dev` will bring us to a nice dev environment
 # where we can run commands like `rails g scaffold`
 dev:
   build: dockerfiles/rails
   volumes:
-    - example/rails:/app
+    - ./example/rails:/app
   links:
     - db
 
-# `fig run android` will bring us to a nice android dev environment
+# `docker-compose run android` will bring us to a nice android dev environment
 android:
   build: dockerfiles/android
   volumes:
-    - example/android/android-studio-robolectric-example:/app
+    - /root/.gradle
+    - ./example/android/android-studio-robolectric-example:/app
+  stdin_open: true

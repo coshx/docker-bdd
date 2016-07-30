@@ -6,17 +6,17 @@ Feature: App Server
 Scenario: Ruby Installed
   Given the services are running
   And I run "ruby -v" on "app"
-  Then I should see "2.2"
+  Then I should see "2.3"
 
 Scenario: Rails Installed
   Given the services are running
   And I run "rails -v" on "app"
-  Then I should see "4.2"
+  Then I should see "5.0"
 
 Scenario: Rails Running
   Given the services are running
   And I run "curl http://app:3000 |grep '<h1>'" on "app"
-  Then I should see "Welcome aboard"
+  Then I should see "Yay!"
 
 Scenario: Rails App Test Suite Passes
   Given I run "rake" on "dev"
