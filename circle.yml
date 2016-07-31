@@ -10,6 +10,8 @@ dependencies:
   override:
     - sudo pip install docker-compose
     - docker-compose up -d
+    - echo "Giving the cluster time to start"
+    - sleep 60
     - bundle install
 
 test:
