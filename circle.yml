@@ -10,11 +10,11 @@ dependencies:
   override:
     - sudo pip install docker-compose
     - docker-compose up -d
-    - gem install cucumber
+    - bundle install
 
 test:
   override:
-    - cucumber
+    - bundle exec cucumber
   post:
     - docker-compose logs > ${CIRCLE_ARTIFACTS}/docker-compose.log
     - cp example/rails/log/* ${CIRCLE_ARTIFACTS}
