@@ -6,12 +6,7 @@ Given /^(?:T|t)he services are running$/ do
   # already running this via circle.yml
 
   unless $docker_compose_up
-    # I hate sleeping here,
-    # but when running on vagrant,
-    # rails needs some more time.
-    sleep_cmd = `whoami`.strip == 'vagrant' ? '&& sleep 10' : ''
-
-    run_cmd "docker-compose build && (docker-compose up -d || true) #{sleep_cmd}"
+    run_cmd "docker-compose build && (docker-compose up -d || true)"
     $docker_compose_up = true
   end
 end
