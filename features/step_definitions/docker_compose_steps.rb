@@ -11,6 +11,11 @@ Given /^(?:T|t)he services are running$/ do
   end
 end
 
+Given /^"([^\"]*)" is running(?:| with "(\d+)" nodes)$/ do |service, scale|
+  scale = scale.nil? ? 1 : scale.to_i
+  run_cmd "docker-compose scale #{service}=#{scale}"
+end
+
 When /^I run "([^\"]*)" on (?:|the )"([^\"]*)"(?:| service)$/ do |cmd, service|
   run_cmd "docker-compose run #{service} bash -i -c \"sleep 1; #{cmd}\""
 end

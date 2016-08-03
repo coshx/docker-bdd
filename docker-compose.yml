@@ -36,3 +36,11 @@ android:
     - /root/.gradle
     - ./example/android/android-studio-robolectric-example:/app
   stdin_open: true
+
+cassandra:
+  image: cassandra
+
+cassandra-dev:
+  image: cassandra
+  links:
+    - cassandra
