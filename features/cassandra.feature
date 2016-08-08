@@ -11,6 +11,7 @@ Scenario: Launch a CQL Shell
 
 Scenario: Two Nodes Running
   Given "cassandra" is running with "2" nodes
+  And I drop the keyspace "test_two" on "cassandra_1" if it exists
   And I create the keyspace "test_two" on "cassandra_1"
   And I list the keyspaces on "cassandra_2"
   Then I should see "test_two"

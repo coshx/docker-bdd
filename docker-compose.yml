@@ -37,8 +37,15 @@ android:
     - ./example/android/android-studio-robolectric-example:/app
   stdin_open: true
 
+cassandra-seed:
+  image: cassandra
+
 cassandra:
   image: cassandra
+  links:
+    - cassandra-seed
+  environment:
+    CASSANDRA_SEEDS: cassandra-seed
 
 cassandra-dev:
   image: cassandra

@@ -5,9 +5,10 @@ When /^I create the keyspace "([^\"]*)"(?:| on "([^\"]*)")$/ do |keyspace, node|
   run_cmd "docker-compose run cassandra-dev cqlsh #{node} -e \"create keyspace #{keyspace} with replication={'class': '#{strategy}', 'replication_factor': #{replication_factor}}\""
 end
 
-When /^I drop the keyspace "([^\"]*)"(?:| on "([^\"]*)")$/ do |keyspace, node|
+When /^I drop the keyspace "([^\"]*)"(?:| on "([^\"]*)")(?:| (if it exists))$/ do |keyspace, node, if_exists|
   node ||= "cassandra"
-  run_cmd "docker-compose run cassandra-dev cqlsh #{node} -e \"drop keyspace '#{keyspace}'\""
+  if_exists = "IF EXISTS" if if_exists
+  run_cmd "docker-compose run cassandra-dev cqlsh #{node} -e \"drop keyspace #{if_exists} #{keyspace}\""
 end
 
 When /^I list the keyspaces(?:| on "([^\"]*)")$/ do |node|
